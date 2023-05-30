@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: mysql
--- Время создания: Дек 15 2022 г., 15:49
--- Версия сервера: 8.0.29
--- Версия PHP: 8.0.24
+-- Хост: 127.0.0.1:3306
+-- Время создания: Май 30 2023 г., 16:46
+-- Версия сервера: 5.7.39-log
+-- Версия PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `ais_zlobich1282_book-crossing`
+-- База данных: `OurBook`
 --
 
 -- --------------------------------------------------------
@@ -29,12 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `book` (
   `book_name` varchar(255) NOT NULL,
-  `book_id` int NOT NULL,
+  `book_id` int(11) NOT NULL,
   `book_author` varchar(255) NOT NULL,
-  `num_page` int NOT NULL,
-  `user_id` int DEFAULT NULL,
-  `category_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Информация о книге';
+  `num_page` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Информация о книге';
 
 -- --------------------------------------------------------
 
@@ -44,8 +44,8 @@ CREATE TABLE `book` (
 
 CREATE TABLE `category` (
   `category_name` varchar(255) NOT NULL,
-  `category_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Жанры книг';
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Жанры книг';
 
 -- --------------------------------------------------------
 
@@ -54,9 +54,9 @@ CREATE TABLE `category` (
 --
 
 CREATE TABLE `fav_category` (
-  `category_id` int NOT NULL,
-  `user_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Любимые категории пользователей';
+  `category_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Любимые категории пользователей';
 
 -- --------------------------------------------------------
 
@@ -67,9 +67,9 @@ CREATE TABLE `fav_category` (
 CREATE TABLE `history_books` (
   `date_collect` datetime NOT NULL,
   `date_free` datetime DEFAULT NULL,
-  `book_id` int NOT NULL,
-  `user_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Время пребывания книг у пользователя';
+  `book_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Время пребывания книг у пользователя';
 
 -- --------------------------------------------------------
 
@@ -78,22 +78,14 @@ CREATE TABLE `history_books` (
 --
 
 CREATE TABLE `user` (
-  `user_id` int NOT NULL,
+  `user_id` int(11) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `sec_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nickname` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Пользователь';
-
---
--- Дамп данных таблицы `user`
---
-
-INSERT INTO `user` (`user_id`, `first_name`, `sec_name`, `email`, `password`, `nickname`, `country`) VALUES
-(1, 'Jeka', 'Hmyriy', 'Jeka@lol.com', '1234567', 'Joka3', 'Russia'),
-(2, 'Kostya', 'White', 'Kostua@lol.com', '1234567', 'Kostya3', 'America');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Пользователь';
 
 --
 -- Индексы сохранённых таблиц
@@ -104,8 +96,8 @@ INSERT INTO `user` (`user_id`, `first_name`, `sec_name`, `email`, `password`, `n
 --
 ALTER TABLE `book`
   ADD PRIMARY KEY (`book_id`),
-  ADD KEY `book_user_user_id_fk` (`user_id`),
-  ADD KEY `book_category_category_id_fk` (`category_id`);
+  ADD KEY `book_category_category_id_fk` (`category_id`),
+  ADD KEY `book_user_user_id_fk` (`user_id`);
 
 --
 -- Индексы таблицы `category`
@@ -117,8 +109,8 @@ ALTER TABLE `category`
 -- Индексы таблицы `fav_category`
 --
 ALTER TABLE `fav_category`
-  ADD KEY `fav_category_category_category_id_fk` (`category_id`),
-  ADD KEY `fav_category_user_user_id_fk` (`user_id`);
+  ADD UNIQUE KEY `user_like` (`user_id`,`category_id`),
+  ADD KEY `fav_category_category_category_id_fk` (`category_id`);
 
 --
 -- Индексы таблицы `history_books`
@@ -142,19 +134,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `book`
 --
 ALTER TABLE `book`
-  MODIFY `book_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
