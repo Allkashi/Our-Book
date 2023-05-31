@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "dbconnect.php";
 try {
     $sql = 'INSERT INTO category(category_name) VALUES(:name)';
@@ -8,8 +9,9 @@ try {
     echo ("Категория успешно добавлена");
 
 } catch (PDOexception $error) {
-    echo ("Ошибка добавления категории: " . $error->getMessage());
+    $_SESSION['msg'] = "Ошибка добавления жанра: " . $error->getMessage();
 }
 // перенаправление на главную страницу приложения
-header('Location: http://OurBook');
+header('Location: http://OurBook/index.php?page=c');
 exit( );
+?>

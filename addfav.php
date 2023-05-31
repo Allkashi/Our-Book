@@ -16,3 +16,5 @@ require "dbconnect.php";
 // перенаправление на главную страницу приложения
 header('Location: http://OurBook/index.php?page=t');
 exit();
+?>
+

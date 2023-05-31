@@ -1,7 +1,9 @@
-<h2>Добавить любимый жанр</h2>
+<div class="container">
+<h1 style="margin-top: 20px">Добавить любимый жанр</h1>
 <form method="get" action="addfav.php">
-    <p><label>
-            Жанры: <select name="cat_id">
+    <div class="d-flex gap-2 w-100 nowrap-content-between">
+            <h2>Жанры:</h2>
+            <select name="cat_id">
                 <?
                 $result = $conn->query("SELECT * FROM category");
                 while ($row = $result->fetch()) {
@@ -9,8 +11,8 @@
                 }
                 ?>
             </select>
+        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Добавить">
 
-        </label>
-    <p><input type="submit" value="Добавить">
-
+    </div>
 </form>
+</div>

@@ -11,5 +11,5 @@ try {
     echo ("Ошибка удаления категории: " . $error->getMessage());
 }
 // перенаправление на главную страницу приложения
-header('Location: http://OurBook');
+header('Location: http://OurBook/index.php?page=c');
 exit( );
