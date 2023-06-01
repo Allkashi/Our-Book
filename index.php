@@ -17,6 +17,14 @@ switch ($_GET['page']){
             echo 'Войдите в сиситему для просмотра и добавления избранных категорий';
         }
         break;
+    case 'b':
+        if (isset($_SESSION['nickname'])){
+            require "bookform.php";
+        }
+        else{
+            echo 'Войдите в сиситему для просмотра и добавления избранных категорий';
+        }
+        break;
 }
 
 require "message.php";
