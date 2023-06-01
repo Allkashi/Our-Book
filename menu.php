@@ -23,13 +23,19 @@
                         <a class="nav-link" href="index.php?page=c">Жанры книг</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=t">Избранные жанры</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="index.php?page=b">Занятые книги</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?page=f">Свободные книги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"> | </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=t">Избранные жанры</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=m">Мои книги</a>
                     </li>
                 </ul>
 

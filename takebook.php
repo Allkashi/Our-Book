@@ -16,6 +16,6 @@ try {
     $_SESSION['msg'] = "Ошибка при взятии книги: " . $error->getMessage();
 }
 // перенаправление на главную страницу приложения
-header('Location: http://OurBook/index.php?page=b');
+header('Location: http://OurBook/index.php?page=f');
 exit();
 ?>
