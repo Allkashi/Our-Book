@@ -1,7 +1,7 @@
 <?php
 require "dbconnect.php";
 try {
-    $sql = 'DELETE FROM category WHERE category_id=:id';
+    $sql = 'DELETE FROM fav_category WHERE category_id=:id; DELETE FROM category WHERE category_id=:id';
     $stmt = $conn->prepare($sql);
     $stmt->bindValue(':id', $_GET['id']);
     $stmt->execute();

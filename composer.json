@@ -1,6 +1,13 @@
 {
     "require": {
         "vlucas/phpdotenv": "^5.5",
-        "twbs/bootstrap": "^5.3"
+        "twbs/bootstrap": "^5.3",
+        "aws/aws-sdk-php": "^3.271"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
     }
 }
+
