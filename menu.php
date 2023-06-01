@@ -26,7 +26,10 @@
                         <a class="nav-link" href="index.php?page=t">Избранные жанры</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=b">Книги</a>
+                        <a class="nav-link" href="index.php?page=b">Занятые книги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=f">Свободные книги</a>
                     </li>
                 </ul>
 

@@ -19,7 +19,15 @@ switch ($_GET['page']){
         break;
     case 'b':
         if (isset($_SESSION['nickname'])){
-            require "bookform.php";
+            require "occbookform.php";
+        }
+        else{
+            echo 'Войдите в сиситему для просмотра и добавления избранных категорий';
+        }
+        break;
+    case 'f':
+        if (isset($_SESSION['nickname'])){
+            require "freebookform.php";
         }
         else{
             echo 'Войдите в сиситему для просмотра и добавления избранных категорий';
