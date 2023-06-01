@@ -2,7 +2,7 @@
 session_start();
 require "dbconnect.php";
 
-if(!empty($filename)) {
+if(!empty($_FILES['filename']['tmp_name'])){
     if ($file = fopen($_FILES['filename']['tmp_name'], 'r+')) {
         //получение расширения
         $ext = explode('.', $_FILES["filename"]["name"]);
