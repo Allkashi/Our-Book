@@ -17,7 +17,7 @@
             <div class="list-group-item list-group-item-action d-flex gap-2 w-100 nowrap-content-between" aria-current="true">
                 <table class="row">
                     <div class="col-md-1">  
-                        <img src="'.$row['cat_url'].'" alt="Task picture" height="60px">
+                        <img app="'.$row['cat_url'].'" alt="Task picture" height="60px">
                     </div>
                     <h6 class=" col-sm-4 mb-0">'.$row['category_id'].'</h6>
                     <p class="col-sm-4 mb-0 opacity-75">'.$row['category_name'].'</p>

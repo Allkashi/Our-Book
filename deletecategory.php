@@ -1,4 +1,5 @@
 <?php
+use Framework\Container;
 require "dbconnect.php";
 try {
     echo ("SELECT * FROM category WHERE category.category_id=".$_GET['id']);
