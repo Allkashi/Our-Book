@@ -30,6 +30,6 @@ abstract class Model
 
     protected function getIdField(): string
     {
-        return "id";
+        return "user_id";
     }
 }

@@ -7,13 +7,13 @@ class Router
 {
     public static $routes = []; //use to be private
     private $request;
-
     public function __construct(Request $request)
     {
         $this->request = $request;
     }
 
     public function getContent(){
+
         $exec_route = null;
         foreach (self::$routes as $route){
             echo "Путь: ".$route->getPath()."<br>";

@@ -6,15 +6,18 @@ use Framework\Router;
 
 class Application
 {
-    public static function init()
+    private Router $router;
+
+
+    public function __construct(Router $router)
     {
-        require "app/routes.php";
-        echo "Приложение инициализировано<p>";
-        foreach (Router::$routes as $route) {
-            $route->getParams();
-        }
-        foreach (Router::$routes as $route) {
-            $route->getMask();
-        }
+        $this->router = $router;
     }
+
+
+    public function run()
+    {
+        echo $this->router->getContent();
+    }
+
 }

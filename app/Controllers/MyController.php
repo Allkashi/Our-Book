@@ -10,4 +10,7 @@ class MyController extends Controller
         return $this->view('index.php', ['name' =>  $name, 'value' => $value]);
     }
 
+//    public function data($user_name, $group_name){
+////        return $this->view('data.php',['name'=>$user_name,'group'=>$group_name]);
+////    }
 }

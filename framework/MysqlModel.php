@@ -15,8 +15,7 @@ class MysqlModel extends Model
         $this->connection = DbConnection::getConnection();
     }
     public function getById($id){
-//           var_dump([$this->getIdField()=>$id]);
-        return $this->getWhere([$this->getIdField()=>$id, 'email'=>2]);
+        return $this->getWhere([$this->getIdField()=>$id]);
     }
     public function getWhere($conditions)
     {
