@@ -6,7 +6,7 @@ use Framework\MysqlModel;
 
 class UserModel extends MysqlModel
 {
-    protected $table="user";
+    protected static  $table="user";
 //    public function index()
 //
 //    {
@@ -25,12 +25,12 @@ class UserModel extends MysqlModel
         // TODO: Implement deleteWhere() method.
     }
 
-    public function updateWhere($conditions)
+    public static function updateWhere($conditions)
     {
         // TODO: Implement updateWhere() method.
     }
 
-    public function create($fields)
+    public static function create($fields)
     {
         // TODO: Implement create() method.
     }
