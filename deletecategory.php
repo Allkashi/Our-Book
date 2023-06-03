@@ -1,5 +1,7 @@
 <?php
 use Framework\Container;
+use App\S3FileUploader;
+
 require "dbconnect.php";
 try {
     echo ("SELECT * FROM category WHERE category.category_id=".$_GET['id']);
@@ -22,5 +24,5 @@ try {
     echo ("Ошибка удаления категории: " . $error->getMessage());
 }
 // перенаправление на главную страницу приложения
-header('Location: http://OurBook/index.php?page=c');
+header('Location: http://OurBook/category');
 exit( );

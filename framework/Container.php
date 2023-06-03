@@ -3,6 +3,7 @@
 namespace Framework;
 
 use Aws\S3\S3Client;
+use App\S3FileUploader;
 use FileUploader;
 
 
@@ -16,7 +17,7 @@ class Container
 
     public static function getAuth(): Auth
     {
-        echo ('создан объект Auth');
+//        echo ('создан объект Auth');
         return new Auth(self::getRequest());
     }
 

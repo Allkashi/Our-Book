@@ -23,22 +23,13 @@ class Route
         $this->type = $type;
         $this->requireAuth = $auth;
     }
-//    public function getParams(){
-//        $params = [];
-//        preg_match_all('/{([a-z]\w*)}/',$this->path,$params);
-//        echo "params: ";
-//       var_dump($params);
-//        echo "<br>";
-//        return $params[0];
-//  }
 
     public function getMask(){
         $path = $this->path;
         $path =  preg_replace("/{[a-z]\w*}/","(\w*)",$path);
-        echo "Mask: ".$path."<br>";
+//        echo "Mask: ".$path."<br>";
         return '~'.$path.'~';
     }
-
 
     public function getPath()
     {

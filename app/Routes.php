@@ -3,6 +3,7 @@
 use Framework\Route;
 use Framework\Router;
 
+Router::addRoute(new Route('category', 'CategoryController@index', Route::METHOD_GET));
 Router::addRoute(new Route('logout', 'AuthController@logout', Route::METHOD_GET));
 Router::addRoute(new Route('login', 'AuthController@login', Route::METHOD_POST));
 Router::addRoute(new Route('page/{page}', 'PageController@index', Route::METHOD_GET));

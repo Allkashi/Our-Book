@@ -1,11 +1,12 @@
 <?php
 
+
 use Aws\S3\S3Client;
 
 class S3FileUploader implements FileUploader
 {
     private S3Client $s3client;
-    private  S3ClientConfig $s3config;
+    private S3ClientConfig $s3config;
 
     public function __construct(S3Client $s3client, S3ClientConfig $s3config)
     {

@@ -46,10 +46,10 @@ class Router
     {
         $params = [];
         preg_match_all($route->getMask(), $this->request->getPath(), $params);
-        echo("<p>Params: ");
-        var_dump($params);
-        echo("<p>Params for controller: ");
-        var_dump(array_map(fn($p) => $p[0], array_slice($params, 1)));
+//        echo("<p>Params: ");
+//        var_dump($params);
+//        echo("<p>Params for controller: ");
+//        var_dump(array_map(fn($p) => $p[0], array_slice($params, 1)));
         return array_map(fn($p) => $p[0], array_slice($params, 1));
     }
 
@@ -73,6 +73,7 @@ class Router
             throw new MethodNotFoundException($method_name, $controller_name);
         }
         $params_to_controller = $this->getParamsForController($exec_route);
+
         return call_user_func_array([$controller, $method_name], ['request' => $this->request]);
 
     }
