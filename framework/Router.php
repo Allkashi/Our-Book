@@ -58,6 +58,7 @@ class Router
      * @throws UnauthorizedException
      * @throws RouteNotFoundException
      */
+
     public function getContent()
     {
         $exec_route = $this->getCurrentRoute();
@@ -72,7 +73,7 @@ class Router
             throw new MethodNotFoundException($method_name, $controller_name);
         }
         $params_to_controller = $this->getParamsForController($exec_route);
-        return call_user_func_array([$controller, $method_name], array_merge(['request' => $this->request], $params_to_controller));
+        return call_user_func_array([$controller, $method_name], ['request' => $this->request]);
 
     }
 
